@@ -10,7 +10,7 @@ export const createClaudeClient = () => {
 
 export const invokeClaude = async ({
   prompt,
-  modelId = process.env.BEDROCK_MODEL_ID || "anthropic.claude-3-sonnet-20240229-v1:0",
+  modelId = process.env.BEDROCK_MODEL_ID,
   temperature = parseFloat(process.env.CLAUDE_TEMPERATURE) || 0.2,
   top_p = parseFloat(process.env.CLAUDE_TOP_P) || 0.9,
   top_k = parseInt(process.env.CLAUDE_TOP_K, 10) || 250,

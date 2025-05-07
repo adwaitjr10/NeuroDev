@@ -1,0 +1,79 @@
+Model,ModelId,Score,Output
+"Claude 3 Haiku","anthropic.claude-3-haiku-20240307-v1:0",1,"Sure, here's an example of a Node.js Express API with a `/health` endpoint:
+
+```javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+```
+
+In this example, we first import the `express` module and create an Express application using `express()`. We then define a `/health` endpoint using the `app.get()` method, which responds with a JSON object containing the status `'OK'` and a 200 status code.
+
+Finally, we start the server using the `app.listen()` method, which listens for incoming requests on the specified port (in this case, `3000`).
+
+To test the `/health` endpoint, you can use a tool like cURL or Postman to send a GET request to `http://localhost:3000/health`. You should receive a response like this:
+
+```json
+{
+  ""status"": ""OK""
+}
+```
+
+This `/health` endpoint is commonly used for health checks, which are used to monitor the status of a service or application. It can be integrated with load balancers, monitoring tools, or other systems to ensure that the application is running and responding as expected."
+"Claude 3 Sonnet","anthropic.claude-3-sonnet-20240229-v1:0",1,"Sure, here's a basic Node.js Express API with a `/health` endpoint:
+
+```javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ message: 'OK' });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+```
+
+Here's what the code does:
+
+1. First, we import the `express` module and create an instance of the Express application.
+2. We define the port number (`3000` in this case) where the server will listen for incoming requests.
+3. We define a route handler for the `/health` endpoint using the `app.get()` method. This route handler simply sends a JSON response with a `200` status code and a message `'OK'`.
+4. Finally, we start the server using the `app.listen()` method, passing in the port number and a callback function that logs a message to the console when the server starts.
+
+To run this code, you'll need to have Node.js and the Express module installed. You can install Express by running the following command:
+
+```
+npm install express
+```
+
+Once you have Express installed, save the code above in a file (e.g., `app.js`), navigate to the directory containing the file in your terminal, and run the following command:
+
+```
+node app.js
+```
+
+This will start the server, and you should see the message `Server is running on port 3000` in your terminal.
+
+You can then test the `/health` endpoint by sending a GET request to `http://localhost:3000/health` using a tool like cURL, Postman, or your web browser. You should receive a JSON response with the message `'OK'`.
+
+```
+curl http://localhost:3000/health
+```
+
+This is a very basic example, but you can extend it by adding more routes and functionality as needed for your API."
+"Claude 3 Opus","anthropic.claude-3-opus-20240229-v1:0",0,""

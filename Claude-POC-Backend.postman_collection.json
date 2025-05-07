@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "Claude POC Backend",
+    "_postman_id": "b4f72690-d12a-4e6b-9ab9-64e9b4ab3c61",
+    "description": "Postman Collection for Claude POC Backend (upload zip, git import, list files, send prompt)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Upload ZIP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/upload-zip",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "upload-zip"]
+        }
+      }
+    },
+    {
+      "name": "Import Git Repo",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"gitUrl\": \"https://github.com/user/repo.git\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/import-git",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "import-git"]
+        }
+      }
+    },
+    {
+      "name": "List Files",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/list-files",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "list-files"]
+        }
+      }
+    },
+    {
+      "name": "Send Prompt to Claude",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"selectedFiles\": [\n    \"workspace/myproject/server.js\",\n    \"workspace/myproject/routes/user.js\"\n  ],\n  \"prompt\": \"Migrate this Node.js app to Java Spring Boot.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/send-prompt",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "send-prompt"]
+        }
+      }
+    }
+  ]
+}

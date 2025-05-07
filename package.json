@@ -1,0 +1,25 @@
+{
+  "name": "claude-poc-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/tokenizer": "^0.0.4",
+    "@aws-sdk/client-bedrock-runtime": "^3.799.0",
+    "@langchain/community": "^0.3.42",
+    "@langchain/langgraph": "^0.2.67",
+    "archiver": "^7.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "fast-glob": "^3.3.3",
+    "glob": "^11.0.2",
+    "js-levenshtein": "^1.1.6",
+    "langchain": "^0.3.24",
+    "unzipper": "^0.10.14"
+  }
+}

@@ -1,0 +1,63 @@
+Filename: package.json
+
+{
+  "name": "whatsapp-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
+    "dev:api": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev:whatsapp": "ts-node-dev --transpile-only --ignore-watch node_modules src/whatsapp/index.ts",
+    "dev:server": "concurrently \"yarn dev:api\" \"yarn dev:whatsapp\"",
+    "debug": "concurrently \"yarn dev:api\" \"yarn dev:whatsapp\"",
+    "start": "concurrently \"node dist/server.js\" \"node dist/whatsapp/index.js\"",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "gcp-build": "tsc -p ."
+  },
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/app-root-path": "^1.2.4",
+    "app-root-path": "^3.0.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.1",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "qrcode": "^1.4.4",
+    "qrcode-terminal": "^0.12.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "1.1.8",
+    "typeorm": "0.2.30",
+    "whatsapp-web.js": "1.26.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.8",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/qrcode": "^1.3.5",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
+  }
+}

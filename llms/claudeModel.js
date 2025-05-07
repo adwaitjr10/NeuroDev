@@ -1,16 +1,20 @@
 import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const createClaudeClient = () => {
-  return new BedrockRuntimeClient({ region: "ap-south-1" });
+  return new BedrockRuntimeClient({
+    region: process.env.BEDROCK_REGION || "us-east-1",
+  });
 };
 
 export const invokeClaude = async ({
   prompt,
-  modelId = "anthropic.claude-3-sonnet-20240229-v1:0",
-  temperature = 0.2,
-  top_p = 0.9,
-  top_k = 250,
-  max_tokens = 8000,
+  modelId = process.env.BEDROCK_MODEL_ID || "anthropic.claude-3-sonnet-20240229-v1:0",
+  temperature = parseFloat(process.env.CLAUDE_TEMPERATURE) || 0.2,
+  top_p = parseFloat(process.env.CLAUDE_TOP_P) || 0.9,
+  top_k = parseInt(process.env.CLAUDE_TOP_K, 10) || 250,
+  max_tokens = parseInt(process.env.CLAUDE_MAX_TOKENS, 10) || 8000,
   stop_sequences = [],
 }) => {
   const client = createClaudeClient();
@@ -25,12 +29,7 @@ export const invokeClaude = async ({
     messages: [
       {
         role: "user",
-        content: [
-          {
-            type: "text",
-            text: prompt,
-          },
-        ],
+        content: [{ type: "text", text: prompt }],
       },
     ],
   };
